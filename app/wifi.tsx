@@ -73,24 +73,9 @@ const EyeFilledIcon = (props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>)
     </svg>
 );
 export default function WiFiPanel() {
-    const colors = [
-        "default",
-        "primary",
-        "secondary",
-        "success",
-        "warning",
-        "danger",
-    ];
-    const [refresh, setRefresh] = useState(false);
     const [ssid, setSSID] = useState("");
     const [needPassword, setNeedPassword] = useState(false);
     const [password, setPassword] = useState("");
-
-    const handleSelectionChange = (e: any) => {
-        console.log(e.target.value);
-        setSSID(e.target.value);
-        setNeedPassword(true);
-    };
 
     function handlePasswordChange(e: any) {
         setPassword(e.target.value);
@@ -100,32 +85,13 @@ export default function WiFiPanel() {
         setSSID(e.target.value);
     }
 
-    function refreshWiFi() {
-        setRefresh(true);
+    function saveWiFi() {
+        console.log("Save WiFi ", ssid, password);
     }
-
-    const [isVisible, setIsVisible] = useState(false);
-
-    const toggleVisibility = () => setIsVisible(!isVisible);
-
 
     return (
         <div className="w-full flex flex-col items-center justify-center flex-wrap gap-4">
             <p>Wi-Fi</p>
-            {/* <Select
-                label="SSID"
-                placeholder="Choose your Wi-Fi SSID"
-                className="max-w-xs"
-                onChange={handleSelectionChange}
-                scrollShadowProps={{
-                    isEnabled: false
-                }} >
-                {animals.map((animal) => (
-                    <SelectItem key={animal.key}>
-                        {animal.label}
-                    </SelectItem>
-                ))}
-            </Select> */}
             <Input
                 type="text"
                 label="SSID"
@@ -133,12 +99,12 @@ export default function WiFiPanel() {
                 onChange={handleSSIDChange}
             />
             <Input
-                type={isVisible ? "text" : "password"}
+                type="text"
                 label="Password"
                 value={password}
                 onChange={handlePasswordChange}
             />
-            <Button color="primary" variant="ghost" className="w-full max-w-xs" onClick={refreshWiFi}>
+            <Button color="primary" variant="ghost" className="w-full max-w-xs" onClick={saveWiFi}>
                 Save
             </Button>
         </div>
