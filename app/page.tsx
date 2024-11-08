@@ -5,7 +5,7 @@ export default function Home() {
 
   return (
     <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
-      <div className="inline-block max-w-xl text-center justify-center">
+      {/* <div className="inline-block max-w-xl text-center justify-center">
         <span className={title()}>Bring the&nbsp;</span>
         <span className={title({ color: "violet" })}>Compass&nbsp;</span>
         <br />
@@ -16,7 +16,7 @@ export default function Home() {
           Set target Location.
         </div>
         <Preference />
-      </div>
+      </div> */}
 
       <div className="flex gap-3">
         {/* <Link
