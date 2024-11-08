@@ -1,3 +1,4 @@
+'use client';
 import {
   Navbar as NextUINavbar,
   NavbarContent,
@@ -8,7 +9,6 @@ import {
   NavbarMenuItem,
 } from "@nextui-org/navbar";
 import { Button } from "@nextui-org/button";
-import { Kbd } from "@nextui-org/kbd";
 import { Link } from "@nextui-org/link";
 import { Input } from "@nextui-org/input";
 import { link as linkStyles } from "@nextui-org/theme";
@@ -35,9 +35,7 @@ export const Navbar = () => {
         input: "text-sm",
       }}
       endContent={
-        <Kbd className="hidden lg:inline-block" keys={["command"]}>
-          K
-        </Kbd>
+       <></>
       }
       labelPlacement="outside"
       placeholder="Search..."
@@ -54,10 +52,10 @@ export const Navbar = () => {
         <NavbarBrand as="li" className="gap-3 max-w-fit">
           <NextLink className="flex justify-start items-center gap-1" href="/">
             <Logo />
-            <p className="font-bold text-inherit">MCompass</p>
+            <p className="font-bold text-inherit">Compass</p>
           </NextLink>
         </NavbarBrand>
-        {/* <ul className="hidden lg:flex gap-4 justify-start ml-2">
+        <ul className="hidden lg:flex gap-4 justify-start ml-2">
           {siteConfig.navItems.map((item) => (
             <NavbarItem key={item.href}>
               <NextLink
@@ -72,7 +70,7 @@ export const Navbar = () => {
               </NextLink>
             </NavbarItem>
           ))}
-        </ul> */}
+        </ul>
       </NavbarContent>
 
       <NavbarContent
