@@ -3,6 +3,10 @@ import { useState } from "react";
 import { Button } from "@nextui-org/button";
 import { Input } from "@nextui-org/input";
 import { Popover, PopoverTrigger, PopoverContent } from "@nextui-org/popover";
+import { Tab, Tabs } from "@nextui-org/tabs";
+import { Switch } from "@nextui-org/switch";
+import WiFiPanel from "./panel";
+import { Card, CardBody } from "@nextui-org/card";
 
 export default function Preference() {
     const [latitude, setLatitude] = useState('');
@@ -38,24 +42,33 @@ export default function Preference() {
             setErrorPopover(true);
         }
     }
-
-    return <div>
-        <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
-            <Input type="number" label="Latitude" value={latitude} onChange={onLatitudeChange} />
-            <Input type="number" label="Longitude" value={longitude} onChange={onLongitudeChange} />
-        </div>
-        <Popover placement="bottom">
-            <PopoverTrigger>
-                <Button color="primary" variant="ghost" className="w-full mt-8" onClick={handleSave} isDisabled={!canSave}>
-                    Save
-                </Button>
-            </PopoverTrigger>
-            <PopoverContent>
-                <div className="px-1 py-2">
-                    <div className="text-small font-bold">Value Error</div>
-                    <div className="text-tiny">Latitude and Longitude must be numbers between -90 and 90, and -180 and 180 respectively.</div>
-                </div>
-            </PopoverContent>
-        </Popover>
+    return <div className="flex flex-col max-w-xl">
+        <Card className="p-4">
+            <Tabs aria-label="Options">
+                <Tab key="wifi" title="WiFi">
+                    <WiFiPanel />
+                </Tab>
+                <Tab key="spawn" title="Spawn">
+                    <div className="w-full flex flex-col items-center justify-center flex-wrap gap-4">
+                        <p>World Spawn Point</p>
+                        <Input type="number" label="Latitude" value={latitude} onChange={onLatitudeChange} />
+                        <Input type="number" label="Longitude" value={longitude} onChange={onLongitudeChange} />
+                        <Popover placement="bottom">
+                            <PopoverTrigger>
+                                <Button color="primary" variant="ghost" className="max-w-xs w-full" onClick={handleSave} isDisabled={!canSave}>
+                                    Save
+                                </Button>
+                            </PopoverTrigger>
+                            <PopoverContent>
+                                <div className="px-1 py-2">
+                                    <div className="text-small font-bold">Value Error</div>
+                                    <div className="text-tiny">Latitude and Longitude must be numbers between -90 and 90, and -180 and 180 respectively.</div>
+                                </div>
+                            </PopoverContent>
+                        </Popover>
+                    </div>
+                </Tab>
+            </Tabs>
+        </Card>
     </div>;
 }

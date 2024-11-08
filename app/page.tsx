@@ -15,8 +15,8 @@ export default function Home() {
         <div className={subtitle({ class: "mt-4" })}>
           Set target Location.
         </div>
+        </div> */}
         <Preference />
-      </div> */}
 
       <div className="flex gap-3">
         {/* <Link

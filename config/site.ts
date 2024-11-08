@@ -1,7 +1,7 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-  name: "Your Compass",
+  name: "Compass",
   description: "Bringing the Compass from Minecraft to Life.",
   navItems: [
     {
