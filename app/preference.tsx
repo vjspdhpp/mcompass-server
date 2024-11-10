@@ -5,7 +5,6 @@ import WiFiPanel from "./wifi";
 import SpawnPanel from "./spwan";
 import Reset from "./reset";
 import InfoPanel from "./info";
-
 export default function Preference() {
 
     return <div className="flex flex-col max-w-xl">

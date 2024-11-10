@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@nextui-org/button";
 import { Input } from "@nextui-org/input";
 import { Popover, PopoverTrigger, PopoverContent } from "@nextui-org/popover";
@@ -11,6 +11,22 @@ export default function SpawnPanel() {
     const [canSave, setCanSave] = useState(false);
     const [isSaving, setIsSaving] = useState(false);
     const [errorPopover, setErrorPopover] = useState(false);
+
+    useEffect(() => {
+        setIsSaving(true);
+        // 获取当前的经纬度
+        fetch("/spawn")
+            .then(response => response.json())
+            .then(data => {
+                if (data.latitude && data.longitude) {
+                    setLatitude(data.latitude);
+                    setLongitude(data.longitude);
+                    setCanSave(true);
+                }
+            }).finally(() => {
+                setIsSaving(false);
+            });
+    }, []);
 
     function onLatitudeChange(e: React.ChangeEvent<HTMLInputElement>) {
         const lat = e.target.value;
@@ -34,9 +50,15 @@ export default function SpawnPanel() {
             console.log("Save ", lat, lon);
             setErrorPopover(false);
             setIsSaving(true);
-            setTimeout(() => {
+            fetch("/spawn", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ "latitude": lat, "longitude": lon })
+            }).finally(() => {
                 setIsSaving(false);
-            }, 2000);
+            });
         } else {
             console.log("Please enter both latitude and longitude");
             // show a toast
