@@ -1,10 +1,9 @@
 'use client';
+import { Autocomplete, AutocompleteItem } from "@nextui-org/autocomplete";
 import { Button } from "@nextui-org/button";
 import { Input } from "@nextui-org/input";
-import { Select, SelectItem } from "@nextui-org/select";
-import { JSX, SVGProps, useState } from "react";
-import { HexColorPicker } from "react-colorful";
-import { HsvColorPicker } from "react-colorful";
+import { JSX, SVGProps, useEffect, useState } from "react";
+
 const animals = [
     { key: "cat", label: "Cat" },
     { key: "dog", label: "Dog" },
@@ -20,53 +19,36 @@ const animals = [
     { key: "otter", label: "Otter" },
     { key: "crocodile", label: "Crocodile" }
 ];
+
 export default function WiFiPanel() {
     const [ssid, setSSID] = useState("");
     const [needPassword, setNeedPassword] = useState(false);
     const [password, setPassword] = useState("");
-    const [color, setColor] = useState("#aabbcc");
-    const [hsvColor, setHsvColor] = useState({ h: 0, s: 0, v: 0 });
+    const [ssids, setSSIDs] = useState<{ key: string, value: string }[]>([]);
+
+    // useEffect(() => {
+    //     const interval = setInterval(() => {
+    //         fetch("/api/wifi/ssids")
+    //             .then(response => response.json())
+    //             .then(data => {
+    //                 const newSSIDs = data.filter((ssid: any) => !ssids.some((s: any) => s.key === ssid.key));
+    //                 setSSIDs([...ssids, ...newSSIDs]);
+    //             });
+    //     }, 1000);
+    //     return () => clearInterval(interval);
+    // }, []);
 
     function handlePasswordChange(e: any) {
         setPassword(e.target.value);
     }
 
     function handleSSIDChange(e: any) {
+        console.log("SSID changed ", e.target.value);
         setSSID(e.target.value);
     }
 
     function saveWiFi() {
         console.log("Save WiFi ", ssid, password);
-    }
-
-    function handleColorChange(color: string) {
-        setColor(color);
-        fetch("/setColor", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ "color": color })
-        })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-            });
-    }
-
-    function queryWifiList() {
-        console.log("Query WiFi List");
-        // 发起一个请求，获取WiFi列表
-        // fetch("/get")
-        //     .then(response => response.json())
-        //     .then(data => {
-        //         console.log(data);
-        //     })
-        //     .catch(error => {
-        //         console.error("Error fetching WiFi list:", error);
-        //     });
-        // 把color post出去
-
     }
 
     return (
@@ -87,10 +69,6 @@ export default function WiFiPanel() {
             <Button color="primary" variant="ghost" className="w-full max-w-xs" onClick={saveWiFi}>
                 Save
             </Button>
-            <Button color="primary" variant="ghost" className="w-full max-w-xs" onClick={queryWifiList}>
-                Test Request
-            </Button>
-            <HexColorPicker color={color} onChange={handleColorChange} />
         </div>
 
     );

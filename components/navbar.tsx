@@ -91,7 +91,7 @@ export const Navbar = () => {
         </NavbarItem>
         {/* <NavbarItem className="hidden lg:flex">{searchInput}</NavbarItem> */}
         <NavbarItem className="hidden md:flex">
-          {/* <Button
+          <Button
             isExternal
             as={Link}
             className="text-sm font-normal text-default-600 bg-default-100"
@@ -100,7 +100,7 @@ export const Navbar = () => {
             variant="flat"
           >
             Sponsor
-          </Button> */}
+          </Button>
         </NavbarItem>
       </NavbarContent>
 
@@ -109,10 +109,10 @@ export const Navbar = () => {
           <GithubIcon className="text-default-500" />
         </Link>
         <ThemeSwitch />
-        {/* <NavbarMenuToggle /> */}
+        <NavbarMenuToggle />
       </NavbarContent>
 
-      {/* <NavbarMenu>
+       <NavbarMenu>
         {searchInput}
         <div className="mx-4 mt-2 flex flex-col gap-2">
           {siteConfig.navMenuItems.map((item, index) => (
@@ -133,7 +133,7 @@ export const Navbar = () => {
             </NavbarMenuItem>
           ))}
         </div>
-      </NavbarMenu> */}
+      </NavbarMenu>
     </NextUINavbar>
   );
 };

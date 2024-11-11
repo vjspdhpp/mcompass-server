@@ -5,22 +5,6 @@ export const siteConfig = {
   description: "Bringing the Compass from Minecraft to Life.",
   navItems: [
     {
-      label: "Home",
-      href: "/",
-    },
-    {
-      label: "WiFi",
-      href: "/wifi",
-    },
-    {
-      label: "Pricing",
-      href: "/pricing",
-    },
-    {
-      label: "Options",
-      href: "/options",
-    },
-    {
       label: "About",
       href: "/about",
     },
