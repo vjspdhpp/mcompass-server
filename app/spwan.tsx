@@ -69,6 +69,7 @@ export default function SpawnPanel() {
         }
     }
     return <div className="w-full flex flex-col items-center justify-center flex-wrap gap-4">
+        <p className="px-3 text-start w-full">Compass will point to this location<br />when has GPS signal.</p>
         <Input type="number" label="Latitude" value={latitude} onChange={onLatitudeChange} />
         <Input type="number" label="Longitude" value={longitude} onChange={onLongitudeChange} />
 

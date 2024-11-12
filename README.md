@@ -7,6 +7,6 @@
 
 ## Preference
 * World Spawn Point
-* Color Settings
 
+## Color Plate Settings
 ## Reset All

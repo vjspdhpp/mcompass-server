@@ -53,7 +53,7 @@ export default function WiFiPanel() {
 
     return (
         <div className="w-full flex flex-col items-center justify-center flex-wrap gap-4">
-            <p>Wi-Fi</p>
+            <p className="px-3 text-start w-full">Save WiFi might cause the device to restart <br />and lost current connection.</p>
             <Input
                 type="text"
                 label="SSID"
@@ -70,6 +70,5 @@ export default function WiFiPanel() {
                 Save
             </Button>
         </div>
-
     );
 }

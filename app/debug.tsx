@@ -1,6 +1,13 @@
-import { Button } from "@nextui-org/button";
+import { Switch } from "@nextui-org/switch";
+import { useState } from "react";
 
 export default function DebugPanel() {
+
+    const [fill, setFill] = useState(false);
+
+    function onFillChange(value: boolean) {
+        setFill(value);
+    }
 
     function queryWifiList() {
         console.log("Query WiFi List");
@@ -17,9 +24,7 @@ export default function DebugPanel() {
 
     }
 
-    return <div className="w-full flex flex-col items-center justify-center flex-wrap gap-4">
-        <Button color="primary" variant="ghost" className="w-full max-w-xs" onClick={queryWifiList}>
-            Test Request
-        </Button>
+    return <div className="w-full flex flex-col flex-wrap gap-4">
+        <Switch className="w-full text-start " checked={fill} onValueChange={onFillChange}>Should we arrive the nether?</Switch>
     </div>;
 }

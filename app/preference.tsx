@@ -11,7 +11,7 @@ import DebugPanel from "./debug";
 export default function Preference() {
 
     return <div className="flex flex-col max-w-xl min-w-xl">
-        <Card className="p-4">
+        <Card className="p-8">
             <Tabs aria-label="Options">
                 <Tab key="debug" title="Debug">
                     <DebugPanel />
