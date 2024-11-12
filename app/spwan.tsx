@@ -72,7 +72,6 @@ export default function SpawnPanel() {
         <p className="px-3 text-start w-full">Compass will point to this location<br />when has GPS signal.</p>
         <Input type="number" label="Latitude" value={latitude} onChange={onLatitudeChange} />
         <Input type="number" label="Longitude" value={longitude} onChange={onLongitudeChange} />
-
         <Popover placement="bottom" isOpen={errorPopover} >
             <PopoverTrigger>
                 <Button color="primary" variant="ghost" className="max-w-xs w-full" onClick={handleSave} isDisabled={!canSave}>

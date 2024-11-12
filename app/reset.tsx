@@ -6,6 +6,7 @@ export default function Reset() {
     const [color, setColor] = useState("primary");
     function onResetButtonClick() {
         console.log("Reset");
+        fetch("/reset");
     }
 
     return <div className="w-full flex flex-col items-center justify-center flex-wrap gap-4">

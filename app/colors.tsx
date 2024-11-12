@@ -40,7 +40,7 @@ export default function ColorsPanel() {
 
     return <div className="w-full flex flex-col items-center justify-center flex-wrap gap-4">
         <p >{color}</p>
-        <Switch checked={fill} onValueChange={setFill}>Fill Plate</Switch>
+        <Switch className="w-full" checked={fill} onValueChange={setFill}>Fill Plate</Switch>
         <HexColorPicker color={color} onChange={handleColorChange} />
         <Button color="primary" variant="ghost" className="w-full max-w-xs" onClick={saveColor}>
             Save
