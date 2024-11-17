@@ -3,9 +3,9 @@
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
-		"dev": "next dev --turbo",
+		"dev": "next dev --turbo --port 8010",
 		"build": "next build",
-		"start": "next start",
+		"start": "next start  --port 8010",
 		"lint": "eslint . --ext .ts,.tsx -c .eslintrc.json --fix",
 		"analyze": "source-map-explorer 'out/_next/static/**/*.js'"
 	},
