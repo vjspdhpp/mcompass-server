@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-const isProd = false;
+const isProd = true;
 const nextConfig = {
   output: 'export',
   // productionBrowserSourceMaps: true,
@@ -14,6 +14,6 @@ const nextConfig = {
   //   }
   //   return config
   // },
-  assetPrefix: isProd ? 'http://webcdn.chaosgoo.com' : '',
+  assetPrefix: isProd ? 'https://zygote.ro/mcompass-server' : '',
 }
 module.exports = nextConfig
