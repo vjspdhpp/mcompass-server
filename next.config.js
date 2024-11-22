@@ -14,6 +14,6 @@ const nextConfig = {
   //   }
   //   return config
   // },
-  assetPrefix: isProd ? 'https://zygote.ro/mcompass-server' : '',
+  assetPrefix: isProd ? 'https://compass.chaosgoo.com' : '',
 }
 module.exports = nextConfig
